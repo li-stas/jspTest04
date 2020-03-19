@@ -27,7 +27,7 @@ public class DeptSimpleServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        System.out.println("doGet");
         List<Dept> dept = service.findAllDepts();
         req.setAttribute("dept", dept);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/showDept.jsp");
