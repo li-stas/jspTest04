@@ -1,4 +1,7 @@
 package app.model;
+
+import app.services.IntToStrAttributeConverter;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +14,8 @@ public class Dept {
     @Id
     @Column(name = "deptno")
     //@GeneratedValue(strategy = GenerationType.AUTO) // GenerationType.IDENTITY
-    private Integer deptno; // NUMERIC(2) NOT NuLL,
+    @Convert(converter =  IntToStrAttributeConverter.class)
+    private String deptno; // NUMERIC(2) NOT NuLL,
 
     @Column(name = "dname")
     private String dname; // VARCHAR(15) NOT NULL,
@@ -29,7 +33,7 @@ public class Dept {
     public Dept() {
     }
 
-    public Dept(Integer deptno, String dname, String loc) {
+    public Dept(String deptno, String dname, String loc) {
         this.deptno = deptno;
         this.dname = dname;
         this.loc = loc;
@@ -49,11 +53,11 @@ public class Dept {
         emps.remove(emp);
     }
 
-    public Integer getDeptno() {
+    public String getDeptno() {
         return deptno;
     }
 
-    public void setDeptno(Integer deptno) {
+    public void setDeptno(String deptno) {
         this.deptno = deptno;
     }
 
@@ -86,7 +90,7 @@ public class Dept {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dept dept = (Dept) o;
-        return deptno == dept.deptno &&
+        return Objects.equals(deptno, dept.deptno) &&
                 Objects.equals(dname, dept.dname) &&
                 Objects.equals(loc, dept.loc) &&
                 Objects.equals(emps, dept.emps);
