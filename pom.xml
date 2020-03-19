@@ -32,13 +32,13 @@
     </properties>
 
     <dependencies>
-        <!--<dependency>
+        <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc</artifactId>
             <version>8</version>
             <scope>system</scope>
             <systemPath>C:/oraclexe/ojdbc7.jar</systemPath>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>

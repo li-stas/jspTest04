@@ -11,7 +11,7 @@ public class Dept {
     @Id
     @Column(name = "deptno")
     //@GeneratedValue(strategy = GenerationType.AUTO) // GenerationType.IDENTITY
-    private int deptno; // NUMERIC(2) NOT NuLL,
+    private Integer deptno; // NUMERIC(2) NOT NuLL,
 
     @Column(name = "dname")
     private String dname; // VARCHAR(15) NOT NULL,
@@ -29,7 +29,7 @@ public class Dept {
     public Dept() {
     }
 
-    public Dept(int deptno, String dname, String loc) {
+    public Dept(Integer deptno, String dname, String loc) {
         this.deptno = deptno;
         this.dname = dname;
         this.loc = loc;
@@ -49,11 +49,11 @@ public class Dept {
         emps.remove(emp);
     }
 
-    int getDeptno() {
+    public Integer getDeptno() {
         return deptno;
     }
 
-    public void setDeptno(int deptno) {
+    public void setDeptno(Integer deptno) {
         this.deptno = deptno;
     }
 

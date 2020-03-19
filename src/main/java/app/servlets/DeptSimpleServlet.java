@@ -29,6 +29,7 @@ public class DeptSimpleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("doGet");
         List<Dept> dept = service.findAllDepts();
+        System.out.println("dept " + dept);
         req.setAttribute("dept", dept);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/showDept.jsp");
         dispatcher.forward(req, resp);
